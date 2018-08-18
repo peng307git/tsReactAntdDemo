@@ -3,6 +3,7 @@ import * as React from 'react';
 import './App.scss';
 
 import logo from './logo.svg';
+import { coreName } from './utils/core';
 
 class App extends React.Component {
   public render() {
@@ -16,7 +17,7 @@ class App extends React.Component {
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
         <Rate character="6" />
-        <Button>按钮</Button>
+        <Button>{coreName}按钮</Button>
       </div>
     );
   }
