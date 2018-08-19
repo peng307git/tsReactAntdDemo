@@ -1,11 +1,16 @@
+import { trim } from 'lodash';
+
+export const REACT_APP_ENV = trim(process.env.NODE_ENV);
+export const isProd = REACT_APP_ENV === 'production';
+export const isDev = REACT_APP_ENV === 'development' || !REACT_APP_ENV;
 
 
-
-export const REACT_APP_ENV = process.env.REACT_APP_ENV;
 export const coreName = process.env.REACT_APP_NAME;
 
 
 
 
-// tslint:disable-next-line:no-console
-console.log(REACT_APP_ENV);
+if (!isProd) {
+  console.log('env', REACT_APP_ENV);
+  console.log('env2', process.env);
+}

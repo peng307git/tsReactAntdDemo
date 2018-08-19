@@ -7,6 +7,8 @@ import { coreName } from './utils/core';
 
 class App extends React.Component {
   public render() {
+
+
     return (
       <div className="App">
         <div className="App-header">

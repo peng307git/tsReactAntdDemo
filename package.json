@@ -7,11 +7,14 @@
     "lodash": "^4.17.10",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-scripts-ts-antd": "2.15.1"
+    "react-scripts-ts-antd": "2.15.1",
+    "serve": "^9.6.0"
   },
   "scripts": {
     "start": "react-scripts-ts-antd start",
-    "build": "react-scripts-ts-antd build",
+    "build": "sh -ac '. ./.env.${REACT_APP_ENV}; react-scripts-ts-antd build'",
+    "build:development": "set REACT_APP_ENV=development && yarn build",
+    "build:staging": "set REACT_APP_ENV=staging && yarn build",
     "test": "react-scripts-ts-antd test --env=jsdom",
     "eject": "react-scripts-ts-antd eject"
   },
