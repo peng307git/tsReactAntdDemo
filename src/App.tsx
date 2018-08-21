@@ -1,26 +1,29 @@
-import { Button, Rate } from 'antd';
 import * as React from 'react';
+import BreadcrumbPage from './pages/breadcrumb/Breadcrumb';
+import Home from 'src/pages/home/Home';
+import { Router as BrowserRouter, Route, Switch } from 'react-router-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
 import './App.scss';
+import StepsPage from './pages/steps/Steps';
+import Header from './pages/header/Header';
+const history = createBrowserHistory();
 
-import logo from './logo.svg';
-import { coreName } from './utils/core';
 
 class App extends React.Component {
   public render() {
 
-
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <BrowserRouter history={history}>
+        <div className="App">
+          <Route path="/" render={(props) => <Header {...props} />} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/breadcrumb" component={BreadcrumbPage} />
+            <Route path="/steps" component={StepsPage} />
+          </Switch>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <Rate character="6" />
-        <Button>{coreName}按钮</Button>
-      </div>
+      </BrowserRouter>
+
     );
   }
 }
