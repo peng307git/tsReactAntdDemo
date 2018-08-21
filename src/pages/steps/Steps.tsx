@@ -10,8 +10,6 @@ interface State {
 export default class StepsPage extends React.Component<{}, State> {
   state = {};
   render() {
-    console.log(this.props);
-
     return (
       <div className="steps">
         <Steps current={1}>

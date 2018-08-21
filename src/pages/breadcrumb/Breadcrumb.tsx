@@ -70,7 +70,6 @@ class BreadcrumbPage extends React.Component<{}, State> {
 
   };
   render() {
-    console.log(this.props);
 
     return (
       <div className="breadcrumb">

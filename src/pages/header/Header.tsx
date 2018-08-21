@@ -7,6 +7,7 @@ const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
 interface Props extends Injection {
+
 }
 
 interface State {
@@ -18,11 +19,6 @@ export default class Header extends React.Component<Props, State> {
     current: '/'
   };
 
-  componentDidMount() {
-    const { match } = this.props;
-    console.log(match.isExact);
-  }
-
 
   render() {
     return (
@@ -31,10 +27,7 @@ export default class Header extends React.Component<Props, State> {
         selectedKeys={[this.state.current]}
         mode="horizontal"
       >
-        <Menu.Item key="/">
-          <Icon type="alipay" />home
-        </Menu.Item>
-        <Menu.Item key="Breadcrumb">
+        <Menu.Item key="breadcrumb">
           <Icon type="weibo-circle" />面包屑
         </Menu.Item>
         <Menu.Item key="steps">
@@ -65,6 +58,6 @@ export default class Header extends React.Component<Props, State> {
 }
 
 interface Injection {
-  match?: match<any>;
-  history?: History;
+  history: History;
+  match: match<any>;
 }
